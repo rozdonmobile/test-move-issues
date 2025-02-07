@@ -1,0 +1,11 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Build Number
+        uses: rozd/build-number-github-action@v1
+        id: build-number
+        with:
+          github-token: ${{ secrets.REPO_MANAGE_VARS_TOKEN }}
+      - name: Echo Build Number
+        run: echo "Build number is ${{ steps.build-number.outputs.build-number }}"
